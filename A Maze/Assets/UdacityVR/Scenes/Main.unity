@@ -366,6 +366,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2253f7e5b4c14d6ca1d63312bab36c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyPoofPrefab: {fileID: 1000012050171414, guid: 7f330c5f822cd4ba8b3f4ae7a4bf5298,
+    type: 2}
+  door: {fileID: 1364547928}
+  rotationSpeed: 180
 --- !u!1 &178347497
 GameObject:
   m_ObjectHideFlags: 0
