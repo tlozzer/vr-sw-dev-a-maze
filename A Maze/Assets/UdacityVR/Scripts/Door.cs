@@ -36,6 +36,9 @@ public class Door : MonoBehaviour {
     // Declare a float named 'rotationTime' to set the Quaternion.Slerp() interpolation speed and initialize it to for example '10f'
     private float rotationTime = 10.0f;
 
+    // Reference to the Door_Locked audioclip
+    public AudioClip doorLockedAudioClip;
+
 
 	void Start () {
         // TODO: Get a reference to the audio source
@@ -99,9 +102,10 @@ public class Door : MonoBehaviour {
             }
 
         } else {
-    
+
             // OPTIONAL-CHALLENGE: Play a different sound if the door is locked
             // TIP: You could get a reference to the 'Door_Locked' audio and play it without assigning it to the AudioSource component
+            audioSource.PlayOneShot(doorLockedAudioClip);
         }
 
 	}

@@ -2310,6 +2310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftDoor: {fileID: 666523517}
   rightDoor: {fileID: 1451742984}
+  doorLockedAudioClip: {fileID: 8300000, guid: b6a0517e9a9d14b7b8fd6be65f68f1a5, type: 3}
 --- !u!82 &1364547929
 AudioSource:
   m_ObjectHideFlags: 0
