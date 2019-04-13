@@ -46,11 +46,11 @@ public class Door : MonoBehaviour {
         // Use 'leftDoor' to get the start rotation of the 'Left_Door' game object and assign it to 'leftDoorStartRotation'
         leftDoorStartRotation = leftDoor.transform.rotation;
         // Use 'leftDoorStartRotation' and Quaternion.Euler() to set the end rotation of the 'Left_Door' game object and assign it to 'leftDoorEndRotation'
-        leftDoorEndRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+        leftDoorEndRotation = leftDoorStartRotation * Quaternion.Euler(0.0f, 0.0f, 90.0f);
         // Use 'rightDoor' to get the start rotation of the 'Right_Door' game object and assign it to 'rightDoorStartRotation'
         rightDoorStartRotation = rightDoor.transform.rotation;
         // Use 'rightDoorStartRotation' and Quaternion.Euler() to set the end rotation of the 'Right_Door' game object and assign it to 'rightDoorEndRotation'
-        rightDoorEndRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+        rightDoorEndRotation = rightDoorStartRotation * Quaternion.Euler(0.0f, 0.0f, -90.0f);
 	}
 
 

@@ -2308,8 +2308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f8a5a2b11c2426cb2a2bea3e825751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftDoor: {fileID: 0}
-  rightDoor: {fileID: 0}
+  leftDoor: {fileID: 666523517}
+  rightDoor: {fileID: 1451742984}
 --- !u!82 &1364547929
 AudioSource:
   m_ObjectHideFlags: 0
