@@ -84,13 +84,26 @@ public class Door : MonoBehaviour {
             opening = true;
             // ... use 'audioSource' to play the AudioClip assigned to the AudioSource component
             audioSource.Play();
+
+            // OPTIONAL-CHALLENGE: Prevent the door from being interacted with after it has started opening
+            // TIP: You could disable the Event Trigger component, or for an extra challenge, try disabling all the Collider components on all children
+            Collider[] colliders = leftDoor.GetComponents<Collider>();
+            foreach (Collider coll in colliders)
+            {
+                coll.enabled = false;
+            }
+            colliders = rightDoor.GetComponents<Collider>();
+            foreach (Collider coll in colliders)
+            {
+                coll.enabled = false;
+            }
+
+        } else {
+    
+            // OPTIONAL-CHALLENGE: Play a different sound if the door is locked
+            // TIP: You could get a reference to the 'Door_Locked' audio and play it without assigning it to the AudioSource component
         }
 
-		// OPTIONAL-CHALLENGE: Prevent the door from being interacted with after it has started opening
-		// TIP: You could disable the Event Trigger component, or for an extra challenge, try disabling all the Collider components on all children
-
-		// OPTIONAL-CHALLENGE: Play a different sound if the door is locked
-		// TIP: You could get a reference to the 'Door_Locked' audio and play it without assigning it to the AudioSource component
 	}
 
 
