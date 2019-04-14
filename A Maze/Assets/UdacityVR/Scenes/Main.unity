@@ -622,7 +622,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1814606656}
   - {fileID: 719093547}
   - {fileID: 708232048}
   - {fileID: 1635524356}
@@ -644,6 +643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeBlockPrefab: {fileID: 1569178389883994, guid: 761e4b119e9d5472ea7e199bdf2d6d82,
     type: 2}
+  mazeRows: 12
+  mazeColumns: 10
 --- !u!1 &431478489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1417,7 @@ Transform:
   m_LocalScale: {x: 100.00021, y: 100.00012, z: 100.00012}
   m_Children: []
   m_Father: {fileID: 363863813}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!1 &666523517
 GameObject:
@@ -1474,7 +1475,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 363863813}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!4 &719093547
 Transform:
@@ -1488,7 +1489,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 363863813}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1 &751225581
 GameObject:
@@ -1652,7 +1653,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 363863813}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!1 &955330795
 GameObject:
@@ -2703,7 +2704,7 @@ Transform:
   m_LocalScale: {x: 100.00018, y: 100.00012, z: 100.00012}
   m_Children: []
   m_Father: {fileID: 363863813}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!1001 &1705745019
 Prefab:
@@ -2842,57 +2843,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010383912652, guid: 749ea01a62a9947538f52a6ddfad54d0,
     type: 2}
   m_PrefabInternal: {fileID: 1836120318}
---- !u!1001 &1814606655
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 363863813}
-    m_Modifications:
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 107.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1224718812626100, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 761e4b119e9d5472ea7e199bdf2d6d82, type: 2}
-  m_IsPrefabParent: 0
---- !u!4 &1814606656 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4867748904210648, guid: 761e4b119e9d5472ea7e199bdf2d6d82,
-    type: 2}
-  m_PrefabInternal: {fileID: 1814606655}
 --- !u!1001 &1836120318
 Prefab:
   m_ObjectHideFlags: 0
