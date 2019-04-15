@@ -12,7 +12,7 @@ If you find the maze exit before picking the key, you will not be able to open t
 - The Maze is auto-generated on game start. The code was based on this page's algorithm: [Labirinto - Introdução a Programação em C com Jogos 2D](https://sites.google.com/a/liesenberg.biz/cjogos/home/trabalhos-praticos/atividades-programadas/labirinto), written in portuguese.
 
 ### Main Scene
-- 
+- /A Maze/Assets/UdacityVR/Scenes/Main
 
 ### Versions Used
 - [Unity LTS Release 2017.4.24f1](https://unity3d.com/unity/qa/lts-releases?version=2017.4)
