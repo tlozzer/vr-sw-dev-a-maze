@@ -9,6 +9,8 @@ public class MazeGenerator : MonoBehaviour {
     private const string WEST_WALL = "West_Wall";
 
     public GameObject mazeBlockPrefab;
+    public GameObject waypointParent;
+    public GameObject waypointPrefab;
     public int mazeRows;
     public int mazeColumns;
     private GameObject[] maze;
@@ -35,9 +37,11 @@ public class MazeGenerator : MonoBehaviour {
             float zOffset = (-4.0f * i) + 100.0f;
             for (int j = 0; j < columns; j++)
             {
-                float xOffset = (4.0f * j) - 20.0f;
+                float xOffset = (4.0f * j) - (2.0f * (columns - 1));
                 int blockIndex = (columns * i) + j;
-                maze[blockIndex] = Instantiate(mazeBlockPrefab, new Vector3(xOffset, 0.0f, zOffset), Quaternion.identity, gameObject.transform);
+                Vector3 position = new Vector3(xOffset, 0.0f, zOffset);
+                maze[blockIndex] = Instantiate(mazeBlockPrefab, position, Quaternion.identity, gameObject.transform);
+                Instantiate(waypointPrefab, position + new Vector3(0.0f, 3.0f, 0.0f), Quaternion.identity, waypointParent.transform);
             }
         }
     }
@@ -65,6 +69,8 @@ public class MazeGenerator : MonoBehaviour {
                 currentBlock = maze[currentBlockIndex];
             }
         }
+
+        CreateStartAndFinishBlocks(rows, columns);
     }
 
     private List<int> GetNonVisitedNeighbours(int blockIndex, int rows, int columns, List<int> visitedBlocks) {
@@ -94,18 +100,30 @@ public class MazeGenerator : MonoBehaviour {
     }
 
     private void DisableWalls(GameObject currentBlock, GameObject nextBlock) {
+        
         if (nextBlock.transform.position.z > currentBlock.transform.position.z) {
             currentBlock.transform.Find(SOUTH_WALL).gameObject.SetActive(false);
             nextBlock.transform.Find(NORTH_WALL).gameObject.SetActive(false);
+
         } else if (nextBlock.transform.position.z < currentBlock.transform.position.z) {
             currentBlock.transform.Find(NORTH_WALL).gameObject.SetActive(false);
             nextBlock.transform.Find(SOUTH_WALL).gameObject.SetActive(false);
+
         } else if (nextBlock.transform.position.x > currentBlock.transform.position.x) {
             currentBlock.transform.Find(WEST_WALL).gameObject.SetActive(false);
             nextBlock.transform.Find(EAST_WALL).gameObject.SetActive(false);
+
         } else {
             currentBlock.transform.Find(EAST_WALL).gameObject.SetActive(false);
             nextBlock.transform.Find(WEST_WALL).gameObject.SetActive(false);
         }
+    }
+
+    private void CreateStartAndFinishBlocks(int rows, int columns) {
+        int startBlockIndex = (int)(columns / 2);
+        maze[startBlockIndex].transform.Find(SOUTH_WALL).gameObject.SetActive(false);
+
+        int finishBlockIndex = (columns * (rows - 1)) + startBlockIndex;
+        maze[finishBlockIndex].transform.Find(NORTH_WALL).gameObject.SetActive(false);
     }
 }

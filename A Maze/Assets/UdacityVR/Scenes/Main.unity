@@ -270,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &180267173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -643,8 +643,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeBlockPrefab: {fileID: 1569178389883994, guid: 761e4b119e9d5472ea7e199bdf2d6d82,
     type: 2}
-  mazeRows: 12
-  mazeColumns: 10
+  waypointParent: {fileID: 33954587}
+  waypointPrefab: {fileID: 1000012238771408, guid: 749ea01a62a9947538f52a6ddfad54d0,
+    type: 2}
+  mazeRows: 4
+  mazeColumns: 4
 --- !u!1 &431478489
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &434308051
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1584,7 +1587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &779518188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1673,7 +1676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &955330796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1748,7 +1751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &957176204
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2906,7 +2909,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 35
+      value: 107
       objectReference: {fileID: 0}
     - target: {fileID: 498412, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: m_LocalRotation.x
