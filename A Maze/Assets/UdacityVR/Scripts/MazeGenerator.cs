@@ -9,14 +9,39 @@ public class MazeGenerator : MonoBehaviour {
     private const string WEST_WALL = "West_Wall";
 
     public GameObject mazeBlockPrefab;
-    public GameObject waypointParent;
+    public GameObject waypointsParent;
     public GameObject waypointPrefab;
+    public GameObject keyPrefab;
+    public GameObject coinsParent;
+    public GameObject coinPrefab;
     public int mazeRows;
     public int mazeColumns;
+    public int numberOfItensInMaze;
     private GameObject[] maze;
 
 	// Use this for initialization
 	void Start () {
+
+        // Maze Rows must be between 5 and 15;
+        if (mazeRows < 5)
+        {
+            mazeRows = 5;
+        }
+        else if (mazeRows > 15)
+        {
+            mazeRows = 15;
+        }
+
+        // Maze Columns must be between 5 and 15;
+        if (mazeColumns < 5)
+        {
+            mazeColumns = 5;
+        }
+        else if (mazeColumns > 15)
+        {
+            mazeColumns = 15;
+        }
+
         maze = new GameObject[mazeRows * mazeColumns];
         BuildMaze(mazeRows, mazeColumns);
 	}
@@ -29,6 +54,7 @@ public class MazeGenerator : MonoBehaviour {
     private void BuildMaze(int rows, int columns) {
         InstantiateBlocks(rows, columns);
         BuildPaths(rows, columns);
+        CreateCoinsAndKey(rows, columns);
     }
 
     private void InstantiateBlocks(int rows, int columns) {
@@ -41,7 +67,7 @@ public class MazeGenerator : MonoBehaviour {
                 int blockIndex = (columns * i) + j;
                 Vector3 position = new Vector3(xOffset, 0.0f, zOffset);
                 maze[blockIndex] = Instantiate(mazeBlockPrefab, position, Quaternion.identity, gameObject.transform);
-                Instantiate(waypointPrefab, position + new Vector3(0.0f, 3.0f, 0.0f), Quaternion.identity, waypointParent.transform);
+                Instantiate(waypointPrefab, position + new Vector3(0.0f, 3.0f, 0.0f), Quaternion.identity, waypointsParent.transform);
             }
         }
     }
@@ -125,5 +151,38 @@ public class MazeGenerator : MonoBehaviour {
 
         int finishBlockIndex = (columns * (rows - 1)) + startBlockIndex;
         maze[finishBlockIndex].transform.Find(NORTH_WALL).gameObject.SetActive(false);
+    }
+
+    private void CreateCoinsAndKey(int rows, int columns) {
+        List<int> listOfBlockIndex = GetIndexesForKeyAndCoins(numberOfItensInMaze, rows, columns);
+        // First index is for key; others are for coins
+        for (int i = 0; i < listOfBlockIndex.Count; i++) {
+            if (i == 0) {
+                Instantiate(keyPrefab, maze[listOfBlockIndex[i]].transform.position + new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(-90.0f, 0.0f, 0.0f));
+            } else {
+                Instantiate(coinPrefab, maze[listOfBlockIndex[i]].transform.position + new Vector3(0.0f, 1.5f, 0.0f), Quaternion.identity, coinsParent.transform);
+            }
+        }
+    }
+
+    private List<int> GetIndexesForKeyAndCoins(int numberOfIndexes, int rows, int columns) {
+        if (numberOfIndexes < 6) {
+            numberOfIndexes = 6;
+        } else if (numberOfIndexes > rows * columns) {
+            numberOfIndexes = rows * columns;
+        }
+
+        List<int> indexes = new List<int>();
+
+        for (int i = 0; i < numberOfIndexes; i++) {
+            int index;
+            do
+            {
+                index = Random.Range(0, rows * columns);
+            } while (indexes.Contains(index));
+            indexes.Add(index);
+        }
+
+        return indexes;
     }
 }
