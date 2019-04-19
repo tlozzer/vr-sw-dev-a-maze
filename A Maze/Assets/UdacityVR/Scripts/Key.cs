@@ -8,11 +8,15 @@ public class Key : MonoBehaviour {
     // Declare a GameObject named 'keyPoofPrefab' and assign the 'KeyPoof' prefab to the field in Unity
     // Declare a Door named 'door' and assign the top level 'Door' game object to the field in Unity
     public GameObject keyPoofPrefab;
-    public Door door;
+    private Door door;
     public float rotationSpeed = 180.0f;
 
+    private void Start()
+    {
+        door = FindObjectOfType<Door>();
+    }
 
-	void Update () {
+    void Update () {
         // OPTIONAL-CHALLENGE: Animate the key rotating
         // TIP: You could use a method from the Transform class
         transform.Rotate(new Vector3(0.0f, 0.0f, rotationSpeed) * Time.deltaTime);
