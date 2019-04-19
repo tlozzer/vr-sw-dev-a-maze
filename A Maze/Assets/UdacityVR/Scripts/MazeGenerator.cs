@@ -17,6 +17,7 @@ public class MazeGenerator : MonoBehaviour {
     public int mazeRows;
     public int mazeColumns;
     public int numberOfItensInMaze;
+
     private GameObject[] maze;
 
 	// Use this for initialization
@@ -24,26 +25,19 @@ public class MazeGenerator : MonoBehaviour {
 
         // Maze Rows must be between 5 and 15;
         if (mazeRows < 5)
-        {
             mazeRows = 5;
-        }
         else if (mazeRows > 15)
-        {
             mazeRows = 15;
-        }
 
         // Maze Columns must be between 5 and 15;
         if (mazeColumns < 5)
-        {
             mazeColumns = 5;
-        }
         else if (mazeColumns > 15)
-        {
             mazeColumns = 15;
-        }
 
         maze = new GameObject[mazeRows * mazeColumns];
         BuildMaze(mazeRows, mazeColumns);
+        AddMissingWaypoints(mazeRows);
 	}
 	
 	// Update is called once per frame
@@ -184,5 +178,24 @@ public class MazeGenerator : MonoBehaviour {
         }
 
         return indexes;
+    }
+
+    private void AddMissingWaypoints(int rows) {
+
+        float waypointX = 0.0f;
+        float waypointY = 3.0f;
+
+        if (rows < 13) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 48.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 11) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 57.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 9) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 65.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 7) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 74.0f), Quaternion.identity, waypointsParent.transform);
+        }
     }
 }
