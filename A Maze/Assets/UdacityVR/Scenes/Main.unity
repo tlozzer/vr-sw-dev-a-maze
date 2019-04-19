@@ -725,9 +725,9 @@ MonoBehaviour:
   keyPrefab: {fileID: 1201807127763532, guid: 4822cc39c0c4b430bbe1e0f050b59f72, type: 2}
   coinsParent: {fileID: 2018652374}
   coinPrefab: {fileID: 1532221189122440, guid: 3e18ed730c2f04acd8cad8b84563850d, type: 2}
-  mazeRows: 15
+  mazeRows: 5
   mazeColumns: 15
-  numberOfItensInMaze: 41
+  numberOfItensInMaze: 21
 --- !u!1 &373835706
 GameObject:
   m_ObjectHideFlags: 0

@@ -182,14 +182,20 @@ public class MazeGenerator : MonoBehaviour {
 
     private void AddMissingWaypoints(int rows) {
 
-        if (rows < 11) {
-            Instantiate(waypointPrefab, new Vector3(0.0f, 3.0f, 48.0f), Quaternion.identity, waypointsParent.transform);
-            Instantiate(waypointPrefab, new Vector3(0.0f, 3.0f, 57.0f), Quaternion.identity, waypointsParent.transform);
-        }
+        float waypointX = 0.0f;
+        float waypointY = 3.0f;
 
-        if (rows < 6) {
-            Instantiate(waypointPrefab, new Vector3(0.0f, 3.0f, 65.0f), Quaternion.identity, waypointsParent.transform);
-            Instantiate(waypointPrefab, new Vector3(0.0f, 3.0f, 74.0f), Quaternion.identity, waypointsParent.transform);
+        if (rows < 13) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 48.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 11) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 57.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 9) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 65.0f), Quaternion.identity, waypointsParent.transform);
+        }
+        if (rows < 7) {
+            Instantiate(waypointPrefab, new Vector3(waypointX, waypointY, 74.0f), Quaternion.identity, waypointsParent.transform);
         }
     }
 }
