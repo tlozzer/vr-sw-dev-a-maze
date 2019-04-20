@@ -3,6 +3,7 @@ Starter project for the Udacity [VR Developer Nanodegree](http://udacity.com/vr)
 
 - Course: VR Software Development
 - Project: A Maze
+- Name: Thiago Lozzer Zippinotti
 
 This is a game where you need to navigate through a maze, find a key lost somewhere in it, find the maze exit and open the temple's door.
 If you find the maze exit before picking the key, you will not be able to open the temple's door. In that case, you should return into the maze and find the key.
